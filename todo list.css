@@ -1,0 +1,83 @@
+body{
+    background-color: rgb(211, 246, 211);
+    font-family: 'Inter', sans-serif;
+}
+.gen{
+    display: flex;
+    justify-content: center;
+}
+.name-todo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    color: rgb(42, 112, 42);
+    margin-bottom: 50px;
+}
+.add-button{
+    background-color: rgb(42, 112, 42);
+    border: none;
+    width: 100%;
+    height: 100%;
+    align-items: last baseline;
+    align-items: first baseline;
+}
+.deletebutton{
+    background-color: inherit;
+    border: none;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: medium;
+}
+.todo-display{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 30px;
+    align-items: center;
+    row-gap: 10px;
+    font-size: large;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding-left: 10px;
+    width: 100%;
+}
+.general-display{
+    display: grid;
+    margin: 30px;
+    row-gap: 40px;
+    height: 20px;
+}
+.todo-input{
+    margin: 30px;  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 30px; 
+    margin-bottom: 50px;
+    grid-template-rows: 40px;
+    padding-top: 30px;
+    padding-bottom: 35px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+input{
+    outline: none;
+    width: 100%;
+    height: 100%
+}
+.todo{
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px;
+    border-radius: 4px;
+}
+.completed-info{
+    text-decoration: line-through;
+    text-decoration-color: rgb(151, 2, 2);
+    text-decoration-thickness: 3px;
+}
+.undone-info{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="todo list.css">
+        <!-- Include Font Awesome in your HTML (in <head>) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TODO LIST</title>
+    </head>
+    <body>
+        <header><h1 class="name-todo">TODO LIST</h1></header>
+        
+        <audio class="alarm-sound" src="thumbnails/Alarm02.wav"></audio>
+        <div class="todo-input">
+            <input type="text" placeholder="What needs to be done?" class="js-todo todo" style="padding-left: 10px;">
+            <input type="date" class="js-due-date todo">
+            <input type="time" class="js-due-time todo">
+            <button class="add-button js-add-button todo">Add</button>
+        </div>
+        
+
+        <div class="general-display"></div>
+    </body>
+
+    <script src="todo list.js"></script>
+</html>
