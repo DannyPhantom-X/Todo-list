@@ -17,9 +17,9 @@ if (list === null) {
 function todoHtml() {
     console.log(list)
     list.todoList.forEach((todoX, i) => {
-        info = `<div class="js-todo-display todo-display"><div class="info${i} gen undone-info"><i class="fas fa-edit"></i> <span>${todoX}</span></div>
+        info = `<div class="js-todo-display todo-display"><div class="info${i} gen undone-info"><button class="edit-button" onclick="onclickEdit(${i})"><i class="fas fa-edit"></i></button> <span style="text-align: center;" >${todoX}</span></div>
         <div class="date${i} gen">${list.dueDateList[i]}</div>
-        <div class="time${i} gen">${list.dueTimeList[i]}</div>  
+        <div class="time${i} gen">${list.dueTimeList[i]}</div> 
         <button class="deletebutton deletebutton${i}" onclick='onclickDelete(${i})'><i class="fas fa-trash" title="Delete"></i></button></div>
         ` + info;
         // if (document.querySelector('.deletebutton').innerHTML === 'Done'){
@@ -112,4 +112,10 @@ function checkComplete() {
             document.querySelector(`.deletebutton${i}`).innerHTML = '<i class="fas fa-check check-icon" title="Mark as complete"></i>' 
         }
     })
+}
+
+function onclickEdit(i) {
+    const info = document.querySelector(`.info${i} span`).innerHTML
+    document.querySelector(`.info${i} span`).innerHTML = `<input class="edit-info${i}">`
+    document.querySelector(`.edit-info${i}`).value = info
 }
