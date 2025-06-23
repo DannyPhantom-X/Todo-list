@@ -1,4 +1,5 @@
 Notification.requestPermission()
+console.log('this is it!!')
 let todo = '';
 let list = JSON.parse(localStorage.getItem('savedlist'))
 let maxDelay = 2147483647; 
