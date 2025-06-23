@@ -17,7 +17,7 @@ if (list === null) {
 function todoHtml() {
     console.log(list)
     list.todoList.forEach((todoX, i) => {
-        info = `<div class="js-todo-display todo-display"><div class="info${i} gen undone-info"><button class="edit-button" onclick="onclickEdit(${i})"><i class="fas fa-edit"></i></button> <span style="text-align: center;" >${todoX}</span></div>
+        info = `<div class="js-todo-display todo-display"><div class="info${i} gen undone-info"><button class="edit-button edit-button${i}" onclick="onclickEdit(${i})"><i class="fas fa-edit"></i></button> <span style="text-align: center;" >${todoX}</span></div>
         <div class="date${i} gen">${list.dueDateList[i]}</div>
         <div class="time${i} gen">${list.dueTimeList[i]}</div> 
         <button class="deletebutton deletebutton${i}" onclick='onclickDelete(${i})'><i class="fas fa-trash" title="Delete"></i></button></div>
@@ -97,7 +97,7 @@ function checkComplete() {
                 if (Notification.permission === "granted") {
                     new Notification("Todo List!!!", {
                         body: `${todoX.toUpperCase()}`,
-                        icon: "thumbnails/TODO LOGO.png"
+                        icon: "resources/TODO LOGO.png"
                     });
                 }
             }, timediff)
@@ -113,9 +113,9 @@ function checkComplete() {
         }
     })
 }
-
 function onclickEdit(i) {
     const info = document.querySelector(`.info${i} span`).innerHTML
+    document.querySelector(`.edit-button${i}`).innerHTML = '<i class="fas fa-check check-icon" title="Mark as complete"></i>'
     document.querySelector(`.info${i} span`).innerHTML = `<input class="edit-info${i}">`
     document.querySelector(`.edit-info${i}`).value = info
 }
