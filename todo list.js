@@ -1,7 +1,6 @@
 Notification.requestPermission()
 console.log('this is it!!')
 let todo = '';
-console.log('hadfgf')
 let list = JSON.parse(localStorage.getItem('savedlist'))
 let maxDelay = 2147483647; 
 const todoDisplay = document.querySelector('.general-display')
