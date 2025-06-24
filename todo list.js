@@ -119,3 +119,14 @@ function onclickEdit(i) {
     document.querySelector(`.info${i} span`).innerHTML = `<input class="edit-info${i}">`
     document.querySelector(`.edit-info${i}`).value = info
 }
+
+document.querySelector('.menu').addEventListener('click', () => {
+    console.log('clicked menu')
+    document.querySelector('.menu-closed').classList.add('menu-opened')
+    document.querySelector('.menu-opened').classList.remove('menu-closed')
+    document.querySelector('.menu-opened').innerHTML = `<div class="menu-input">Daily Routine</div>
+                    <div class="menu-input">Daily Routine</div>
+                    <div class="menu-input">Daily Routine</div>
+                    <div class="menu-input">Daily Routine</div>
+                    <div class="menu-input">Settings</div>`
+})
