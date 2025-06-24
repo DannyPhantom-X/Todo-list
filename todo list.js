@@ -117,16 +117,26 @@ function onclickEdit(i) {
     const info = document.querySelector(`.info${i} span`).innerHTML
     document.querySelector(`.edit-button${i}`).innerHTML = '<i class="fas fa-check check-icon" title="Mark as complete"></i>'
     document.querySelector(`.info${i} span`).innerHTML = `<input class="edit-info${i}">`
-    document.querySelector(`.edit-info${i}`).value = info
+    document.querySelector(`.edit-info${i}`).value = info;
 }
 
-document.querySelector('.menu').addEventListener('click', () => {
+document.querySelector('.menu').addEventListener('click', (event) => {
     console.log('clicked menu')
     document.querySelector('.menu-closed').classList.add('menu-opened')
+    document.querySelector('.menu-button').style.backgroundColor = 'rgb(51, 51, 51)'
     document.querySelector('.menu-opened').classList.remove('menu-closed')
     document.querySelector('.menu-opened').innerHTML = `<div class="menu-input">Daily Routine</div>
                     <div class="menu-input">Daily Routine</div>
                     <div class="menu-input">Daily Routine</div>
                     <div class="menu-input">Daily Routine</div>
-                    <div class="menu-input">Settings</div>`
+                    <div class="menu-input">Settings</div>`;
+    event.stopPropagation();
+    window.addEventListener('click', () => {
+        document.querySelector('.menu-button').style.backgroundColor = 'inherit'
+        document.querySelector('.menu-opened').innerHTML = '';
+        document.querySelector('.menu-opened').classList.add('menu-closed')
+        document.querySelector('.menu-closed').classList.remove('menu-opened')
+    })
+
+
 })

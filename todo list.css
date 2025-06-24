@@ -91,11 +91,14 @@ header{
     align-items: center;
     
 }
-.settings-button{
+.menu-button{
     border: none;
     background-color: inherit;
     font-size: 20px;
     color: white;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
 }
 .edit-button{
     border: none;
