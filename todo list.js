@@ -114,10 +114,14 @@ function checkComplete() {
     })
 }
 function onclickEdit(i) {
-    const info = document.querySelector(`.info${i} span`).innerHTML
+    let info = document.querySelector(`.info${i} span`).innerHTML
     document.querySelector(`.edit-button${i}`).innerHTML = '<i class="fas fa-check check-icon" title="Mark as complete"></i>'
     document.querySelector(`.info${i} span`).innerHTML = `<input class="edit-info${i}">`
     document.querySelector(`.edit-info${i}`).value = info;
+    document.querySelector(`.edit-button${i}`).addEventListener('click', () => {
+        info = document.querySelector(`.edit-info${i}`).value
+        document.querySelector(`.info${i} span`).innerHTML = document.querySelector(`.edit-info${i}`).value
+    })
 }
 
 document.querySelector('.menu').addEventListener('click', (event) => {
