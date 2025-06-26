@@ -129,11 +129,8 @@ document.querySelector('.menu').addEventListener('click', (event) => {
     document.querySelector('.menu-closed').classList.add('menu-opened')
     document.querySelector('.menu-button').style.backgroundColor = 'rgb(51, 51, 51)'
     document.querySelector('.menu-opened').classList.remove('menu-closed')
-    document.querySelector('.menu-opened').innerHTML = `<div class="menu-input">Daily Routine</div>
-                    <div class="menu-input">Daily Routine</div>
-                    <div class="menu-input">Daily Routine</div>
-                    <div class="menu-input">Daily Routine</div>
-                    <div class="menu-input">Settings</div>`;
+    document.querySelector('.menu-opened').innerHTML = `<button class="menu-input"><a href="DAILY ROUTINE.html">Daily Routine</a></div>
+                    <button class="menu-input">Settings</div>`;
     event.stopPropagation();
     window.addEventListener('click', () => {
         document.querySelector('.menu-button').style.backgroundColor = 'inherit'
