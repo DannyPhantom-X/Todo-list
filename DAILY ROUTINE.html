@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="Daily Routine.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Todo List | Daily Routine</title>
 </head>
 <body>
     <header>
@@ -25,64 +26,44 @@
             </div>
             <div>
                 <label for="time">Time:</label>
-                <input type="time" name="time" class="time">
+                <input type="time" name="time" class="time-input">
             </div>
             <div>
                 <label class="day">
-                    <input type="checkbox">
-                    <span class="day-label">Mon</span>
+                    <input type="checkbox" class="checkbox">
+                    <span class="day-label">Mo</span>
                 </label>
                 <label class="day">
-                    <input type="checkbox">
-                    <span class="day-label">Tue</span>
+                    <input type="checkbox" class="checkbox">
+                    <span class="day-label">Tu</span>
                 </label>
                 <label class="day">
-                    <input type="checkbox">
-                    <span class="day-label">Wed</span>
+                    <input type="checkbox" class="checkbox">
+                    <span class="day-label">We</span>
                 </label>
                 <label class="day">
-                    <input type="checkbox">
-                    <span class="day-label">Thu</span>
+                    <input type="checkbox" class="checkbox">
+                    <span class="day-label">Th</span>
                 </label>
                 <label class="day">
-                    <input type="checkbox">
-                    <span class="day-label">Fri</span>
+                    <input type="checkbox" class="checkbox">
+                    <span class="day-label">Fr</span>
                 </label>
                 <label class="day">
-                    <input type="checkbox">
-                    <span class="day-label">Sat</span>
+                    <input type="checkbox" class="checkbox">
+                    <span class="day-label">Sa</span>
                 </label>
                 <label class="day">
-                    <input type="checkbox">
-                    <span class="day-label">Sun</span>
+                    <input type="checkbox" class="checkbox">
+                    <span class="day-label">Su</span>
                 </label>
             </div>
             <div>
-                <input type="button" name="time" class="add-button" value="Add">
+                <input type="button" name="time" class="routine-add-button add-button" value="Add">
             </div>
         </div>
-        <div class="routine-display">
-            <div class="routine-info">
-                <div class="routine-time">7:00</div>
-                <div class="routine">Exercise</div>
-                <div class="days">Mon Tue Wed Thu Fri Sat Sun</div>
-            </div>
-            <div class="routine-info">
-                <div class="routine-time">7:00</div>
-                <div class="routine">Exercise</div>
-                <div class="days">Mon Tue Wed Thu Fri Sat Sun</div>
-            </div>
-            <div class="routine-info">
-                <div class="routine-time">7:00</div>
-                <div class="routine">Exercise</div>
-                <div class="days">Mon Tue Wed Thu Fri Sat Sun</div>
-            </div>
-            <div class="routine-info">
-                <div class="routine-time">7:00</div>
-                <div class="routine">Exercise</div>
-                <div class="days">Mon Tue Wed Thu Fri Sat Sun</div>
-            </div>
-        </div>
+        <div class="routine-display"></div>
     </div>
 </body>
+<script src="renderDaiyRoutine.js" type="module"></script>
 </html>

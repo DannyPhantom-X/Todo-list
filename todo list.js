@@ -1,5 +1,5 @@
+import {renderDailyRoutinePage, dailyRoutine, onclickRoutineAdd} from './renderDaiyRoutine.js' 
 Notification.requestPermission()
-console.log('this is it!!')
 let todo = '';
 let list = JSON.parse(localStorage.getItem('savedlist'))
 let maxDelay = 2147483647; 
@@ -15,12 +15,11 @@ if (list === null) {
     };
 }
 function todoHtml() {
-    console.log(list)
     list.todoList.forEach((todoX, i) => {
         info = `<div class="js-todo-display todo-display"><div class="info${i} gen undone-info"><button class="edit-button edit-button${i}" onclick="onclickEdit(${i})"><i class="fas fa-edit"></i></button> <span style="text-align: center;" >${todoX}</span></div>
         <div class="date${i} gen">${list.dueDateList[i]}</div>
         <div class="time${i} gen">${list.dueTimeList[i]}</div> 
-        <button class="deletebutton deletebutton${i}" onclick='onclickDelete(${i})'><i class="fas fa-trash" title="Delete"></i></button></div>
+        <button class="deletebutton deletebutton${i}"><i class="fas fa-trash" title="Delete"></i></button></div>
         ` + info;
         // if (document.querySelector('.deletebutton').innerHTML === 'Done'){
         //     return
@@ -34,15 +33,16 @@ function todoHtml() {
         //         alertTodo((timediff-maxDelay), todoX, i)
         //     }, maxDelay)
         // }
+        
     })
     todoDisplay.innerHTML = info
+    onclickDelete()
     checkComplete()
-    console.log(document.querySelector('.infoto'))
 }
 todoHtml();
 
 let blab;
-function onclickAdd () {
+function onclickAdd() {
     todo = document.querySelector('.js-todo').value;
     let dueDate = document.querySelector('.js-due-date').value;
     let dueTime = document.querySelector('.js-due-time').value;
@@ -54,14 +54,19 @@ function onclickAdd () {
     localStorage.setItem('savedlist', JSON.stringify(list));
     todoHtml();
 }
-function onclickDelete(j) {
-    list.todoList.splice(j, 1)
-    list.dueDateList.splice(j, 1)
-    list.dueTimeList.splice(j, 1)
-    todoDisplay.innerHTML = '';
-    info = '';
-    localStorage.setItem('savedlist', JSON.stringify(list))
-    todoHtml();
+function onclickDelete() {
+    list.todoList.forEach((todoX, j) => {
+        document.querySelector(`.deletebutton${j}`).addEventListener('click', () => {
+            console.log()
+            list.todoList.splice(j, 1)
+            list.dueDateList.splice(j, 1)
+            list.dueTimeList.splice(j, 1)
+            localStorage.setItem('savedlist', JSON.stringify(list))
+            todoDisplay.innerHTML = '';
+            info = ''
+            todoHtml(); 
+        })
+    })
 }
 addButton.addEventListener('click', () => {
     onclickAdd();
@@ -82,7 +87,6 @@ function checkComplete() {
         const [year, month, day] = splitDueDate;
         const [hour, minute] = splitDueTime;
         const timediff  = new Date(year, (month-1), day, hour, minute) - new Date()
-        console.log(timediff)
         if (timediff > 0) {
             setTimeout(() => {
                 document.querySelector('.alarm-sound').play()
@@ -102,7 +106,6 @@ function checkComplete() {
                 }
             }, timediff)
         }else {
-            console.log('less than timediff')
             document.querySelector(`.info${i}`).classList.remove('undone-info')
             document.querySelector(`.info${i}`).classList.add('completed-info')
             document.querySelector(`.date${i}`).classList.add('completed-info')
@@ -125,19 +128,18 @@ function onclickEdit(i) {
 }
 
 document.querySelector('.menu').addEventListener('click', (event) => {
-    console.log('clicked menu')
     document.querySelector('.menu-closed').classList.add('menu-opened')
     document.querySelector('.menu-button').style.backgroundColor = 'rgb(51, 51, 51)'
     document.querySelector('.menu-opened').classList.remove('menu-closed')
-    document.querySelector('.menu-opened').innerHTML = `<button class="menu-input"><a href="DAILY ROUTINE.html">Daily Routine</a></div>
+    document.querySelector('.menu-opened').innerHTML = `<button class="menu-input menu-daily-routine">Daily Routine</div>
                     <button class="menu-input">Settings</div>`;
     event.stopPropagation();
-    window.addEventListener('click', () => {
+    window.addEventListener('click', (event) => {
         document.querySelector('.menu-button').style.backgroundColor = 'inherit'
         document.querySelector('.menu-opened').innerHTML = '';
         document.querySelector('.menu-opened').classList.add('menu-closed')
         document.querySelector('.menu-closed').classList.remove('menu-opened')
-    })
-
-
+        event.stopImmediatePropagation()
+    }, {once: true})
+    renderDailyRoutinePage();
 })
